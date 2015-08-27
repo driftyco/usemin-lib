@@ -1,39 +1,33 @@
-# usemin-cli [![Build Status](https://travis-ci.org/nelsyeung/usemin-cli.svg?branch=master)](https://travis-ci.org/nelsyeung/usemin-cli)
+# usemin-lib 
 
-> CLI version of usemin. For _purists_, those who doesn't use build tools like [Grunt](https://github.com/yeoman/grunt-usemin) and [Gulp](https://github.com/zont/gulp-usemin), but just use NPM as their build tool.
+> Library version of usemin. For _purists_, those who doesn't use build tools like [Grunt](https://github.com/yeoman/grunt-usemin) and [Gulp](https://github.com/zont/gulp-usemin), but just use NPM as their build tool.
 
 ## Getting started
 
 To use this now, install with this command:
 ```
-npm install usemin-cli
+npm install usemin-lib
 ```
 
 From GitHub
 ```
-git clone https://github.com/nelsyeung/usemin-cli.git
-cd usemin-cli
+git clone https://github.com/driftyco/usemin-lib.git
+cd usemin-lib
 npm install
 npm link
 ```
 
 ## Usage
 
-```
-usemin [input.html] [--dest|-d dir] [--output|-o output.html] [options]
-```
-### Example commands
-```
-usemin src/index.html --dest dist --output dist/index.html
-usemin src/index.html -d dist -o dist/index.html
-usemin src/index.html -d dist > dist/index.html
-usemin src/index.html -d dist -o dist/index.html --htmlmin true --rmlr true
-```
-
-### Available options
-```
---htmlmin - Also minifies the input HTML file (Boolean)
---rmlr, --removeLivereload - Remove livereload script (Boolean)
+``` js
+var fs = require('fs'), path = require('path');
+var indexHtmlFilePath = path.join('./', 'index.html');
+var useminLib = require('usemin-lib');
+var content = fs.readFileSync(indexHtmlFilePath).toString();
+var blocks = useminLib.getBlocks(indexHtmlFilePath, content, true /* removeLivereloadBool */);
+var process = useminLib.processBlocks(blocks, './www/dist/index.html' /* destDir */);
+var output = useminLib.getHTML(content, blocks, true /* htmlminBool */);
+console.log('minified stuffs:', output);
 ```
 
 ### Example HTML
