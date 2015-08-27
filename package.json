@@ -1,11 +1,8 @@
 {
-  "name": "usemin-cli",
-  "version": "0.0.5",
-  "description": "Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views).",
+  "name": "usemin-lib",
+  "version": "0.0.1",
+  "description": "Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views) available as a library",
   "main": "index.js",
-  "bin": {
-    "usemin": "./bin/usemin"
-  },
   "scripts": {
     "test": "mocha"
   },
@@ -28,9 +25,9 @@
   "dependencies": {
     "clean-css": "^3.3.5",
     "html-minifier": "^0.7.2",
+    "imagemin": "^3.2.0",
     "mkdirp": "^0.5.1",
-    "uglify-js": "^2.4.23",
-    "yargs": "^3.12.0"
+    "uglify-js": "^2.4.23"
   },
   "devDependencies": {
     "chai": "^3.0.0",
