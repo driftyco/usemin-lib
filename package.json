@@ -1,6 +1,6 @@
 {
   "name": "usemin-lib",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views) available as a library",
   "main": "index.js",
   "scripts": {
